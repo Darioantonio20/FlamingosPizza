@@ -6,6 +6,15 @@ public class ItemCompra {
     private Pizza producto;
     private float subtotal;
 
+    private String nombre;
+
+    public ItemCompra(byte cantidad, Pizza producto, float subtotal, String nombre) {
+        this.cantidad = cantidad;
+        this.producto = producto;
+        this.subtotal = subtotal;
+        this.nombre = nombre;
+    }
+
     public byte getCantidad() {
         return cantidad;
     }
@@ -30,9 +39,11 @@ public class ItemCompra {
         this.subtotal = subtotal;
     }
 
-    public ItemCompra(byte cantidad, Pizza producto, float subtotal) {
-        this.cantidad = cantidad;
-        this.producto = producto;
-        this.subtotal = subtotal;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

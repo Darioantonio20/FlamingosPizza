@@ -17,10 +17,11 @@ public class Main {
         int opcion = 0;
         byte opcionCantidad = 0;
         int cantidad = 0;
+        String nombre;
 
         CatalogoPizza catalogoPizza = new CatalogoPizza();
 
-    OrdenCompra ordenCompra = new OrdenCompra();
+        OrdenCompra ordenCompra = new OrdenCompra();
 
         ItemCompra itemCompra;
         catalogoPizza.llenarCatalogo();
@@ -36,7 +37,7 @@ public class Main {
             System.out.println("----------------------------------------------");
             System.out.println("---| 1.- Catalogo de especialidades|----------");
             System.out.println("----------------------------------------------");
-            System.out.println("---| 2.- Ordenar                   |----------");
+            System.out.println("---| 2.- Ordenar por metodo burbuja|----------");
             System.out.println("----------------------------------------------");
             System.out.println("---| 3.- Reporte de ventas         |----------");
             System.out.println("----------------------------------------------");
@@ -54,6 +55,8 @@ public class Main {
                 case 1:
                         System.out.println("|------------------------------------------------|");
                         System.out.println("| Usted selecciono el catalogo de especialidades |");
+                        System.out.println("| ingresa tu nombre                              |");
+                        nombre = teclado.nextLine();
                         System.out.println("|------------------------------------------------|");
                         System.out.println("---| Dijita tu opción |---------------------------");
                         System.out.println("-->");
@@ -71,21 +74,21 @@ public class Main {
                                 opcionCantidad = Byte.valueOf(teclado.nextLine());
                               }while(opcionCantidad <= 0 );
 
-                                itemCompra = new ItemCompra(opcionCantidad,catalogoPizza.getCatalogo()[opcion-1],catalogoPizza.getCatalogo()[opcion-1].getPrecio() * opcionCantidad);
+                                itemCompra = new ItemCompra(opcionCantidad,catalogoPizza.getCatalogo()[opcion-1],catalogoPizza.getCatalogo()[opcion-1].getPrecio() * opcionCantidad,nombre);
                                 productoList.add(itemCompra);
 
                                 break;
 
                 case 2:
-                    System.out.println("|----------------------------------|");
-                    System.out.println("| Usted a dijitado ordenar |--------");
-                    System.out.println("|----------------------------------|");
+                    System.out.println("|-----------------------------------------------------|");
+                    System.out.println("| Usted a dijitado ordenar por metodo burbuja|--------");
+                    System.out.println("|-----------------------------------------------------|");
 
                     String[] arreglo = new String[productoList.size()];
                     String elemento = null;
 
                         for (int x = 0; x < productoList.size(); x++){
-                        arreglo[x] = productoList.get(x).getProducto().getEspecialidad();
+                        arreglo[x] = productoList.get(x).getNombre();
                         System.out.println(arreglo[x]);
                     }
 
